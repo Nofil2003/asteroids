@@ -3,6 +3,8 @@ from pygame.display import update
 import constants
 from player import Player
 from logger import log_state
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
 
 
 def main() -> None:
@@ -15,10 +17,15 @@ def main() -> None:
     drawable = pygame.sprite.Group()
     Player.containers = (updatable, drawable)
 
+    asteroids = pygame.sprite.Group()
+    Asteroid.containers = (asteroids, updatable, drawable)
+    AsteroidField.containers = updatable
+
     player1 = Player(
         constants.SCREEN_WIDTH / 2,
         constants.SCREEN_HEIGHT / 2,
     )
+    new_asteroidfield = AsteroidField()
 
     print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
     print(
@@ -36,6 +43,7 @@ def main() -> None:
         updatable.update(dt)
         for item in drawable:
             item.draw(screen)
+
         pygame.display.flip()
         dt = clock.tick(60) / 1000
 
