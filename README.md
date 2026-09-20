@@ -1,6 +1,6 @@
-#Simple Asteroids game. W,A,S,D movement. Spacebar for shoot.
+# Simple Asteroids game. W,A,S,D movement. Spacebar for shoot.
 
-##Updates for the future:\
+## Updates for the future:\
 -Add a scoring system\
 -Implement multiple lives and respawning\
 -Add an explosion effect for the asteroids\
